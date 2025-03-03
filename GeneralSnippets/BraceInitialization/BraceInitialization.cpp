@@ -13,6 +13,7 @@ namespace BraceInitialization {
         double dval{ 123.456 };
         int ival{ 123 };
 
+        double d0 = 123;
         double d1 = ival;      // Compiles
         // double d2{ ival };  // Error: "conversion from 'int' to 'double' requires a narrowing conversion"
     }
@@ -22,6 +23,8 @@ namespace BraceInitialization {
 
     static void test_01()
     {
+        // int n = 0;
+
         int n{};                   // n equals 0
         float f{};                 // f equals 0.0
         double d{};                // d equals 0.0
@@ -41,6 +44,8 @@ namespace BraceInitialization {
 
     static void test_02()
     {
+        // int n = 1;
+
         int n{ 1 };                // n equals 1
         float f{ 2.5f };           // f equals 2.5
         double d{ 3.5 };           // d equals 3.5
@@ -73,7 +78,7 @@ namespace BraceInitialization {
         struct Struct obj2 { 1, 2 };                  // obj2.m_i => 1, obj2.m_j => 2
 
         // designated initializer syntax
-        struct Struct obj3 { .m_i = 1, .m_j = 2 };    // obj2.m_i => 1, obj2.m_j => 2
+        struct Struct obj3 { .m_j = 2 };    // obj2.m_i => 1, obj2.m_j => 2
 
         struct Struct obj4 { 3 };                     // obj3.m_i => 3, obj3.m_j => 0
         // gcc: warning:
@@ -216,7 +221,7 @@ namespace BraceInitialization {
 
         int intArray6[10]{ 0 };
 
-        int intArray7[10]{ };
+        int intArray7[1000]{ };
     }
 
     // =================================================================================

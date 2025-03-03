@@ -6,7 +6,7 @@ module modern_cpp_exercises;
 
 void main_exercises()
 {
-    //test_exercises_move_semantics();
+    test_exercises_move_semantics();
     //test_exercises_lambdas();
     //test_exercises_generic_lambdas();
     //test_exercises_initialization();

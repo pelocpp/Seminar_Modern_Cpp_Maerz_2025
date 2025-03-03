@@ -27,7 +27,7 @@ int main()
         //main_array();
         //main_array_decay();
         //main_attributes();
-        main_auto();
+        //main_auto();
         //main_back_inserter();
         //main_bind();
         //main_brace_initialization();
@@ -107,7 +107,7 @@ int main()
         //main_virtual_override_final();
         //main_weak_pointer();
 
-        //main_exercises();
+        main_exercises();
     }
     catch (const std::exception& ex) {
         std::println("Exception: {}", ex.what());

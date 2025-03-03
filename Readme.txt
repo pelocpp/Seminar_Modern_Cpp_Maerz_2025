@@ -110,3 +110,21 @@ GP: Generische Programmierung (Templates)
 "Mit Typen rechnen"  ==> Metaprogramming
 
 =============================================================
+
+explicit
+
+=============================================================
+
+Lambda
+
+Historisch:
+
+a) Mit free function
+
+b) Aufrufbares Objekt // Callable Object // Funktor
+
+=============================================================
+
+Cpp Insights:
+
+https://cppinsights.io/
