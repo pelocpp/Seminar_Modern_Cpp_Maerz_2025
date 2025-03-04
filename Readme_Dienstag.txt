@@ -278,3 +278,17 @@ Fazit:  std::shared_ptr oder std::weak_ptr ???
 
 Antwort: So viel es geht weak_ptr !!!
 
+Observer konkret:
+
+https://github.com/pelocpp/cpp_design_patterns/tree/master/Patterns/Observer/Resources
+
+=========================================
+
+        constexpr Complex c3 = c1 + c2;
+00007FF74FF09310  movss       xmm0,dword ptr [__real@40800000 (07FF75012E760h)]  
+00007FF74FF09318  movss       dword ptr [c3],xmm0  
+00007FF74FF09320  movss       xmm0,dword ptr [__real@40a00000 (07FF75012E764h)]  
+00007FF74FF09328  movss       dword ptr [rbp+8Ch],xmm0  
+
+float: IEEE 754
+

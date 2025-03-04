@@ -6,6 +6,24 @@ module modern_cpp:const_expr;
 
 namespace ConstExprComplex {
 
+    void test_lambdas()
+    {
+        [] () {};
+
+        []() {} ();
+
+        [](int n, int m) { return n + m; };
+
+        constexpr auto adder = [](int n, int m) { return n + m; };
+
+        auto result =  adder(11, 12);
+
+        constexpr auto anotherResult = adder(13, 14);
+
+        constexpr auto anotherResult2 = [](int n, int m) { return n + m; } (14,15);
+
+    }
+
     class Complex
     {
     private:
@@ -14,8 +32,13 @@ namespace ConstExprComplex {
 
     public:
         // c'tors
-        constexpr Complex() : m_real{ }, m_imag{ } {}
-        constexpr Complex(float real, float imag) : m_real{ real }, m_imag{ imag } {}
+        constexpr Complex() : m_real{ }, m_imag{ } { 
+            // std::cin >> m_real;
+        }
+        
+        constexpr Complex(float real, float imag) 
+            : m_real{ real }, m_imag{ imag } 
+        {}
 
         // getter
         constexpr float real() const { return m_real; }
@@ -37,7 +60,9 @@ namespace ConstExprComplex {
         constexpr Complex c2{ 3.0, 3.0 };
 
         constexpr float r1 = c1.real();
+
         constexpr Complex c3 = c1 + c2;
+
         constexpr float r2 = c3.real();
 
         // verify 'constness' with the help of disassembly and
@@ -66,7 +91,7 @@ namespace ConstExprDynamicData {
 
     static void testDynamicData()
     {
-        constexpr int sum = naiveSum(10);
+        constexpr int sum = naiveSum(5);
         std::println("Sum from 1 up to 10: {}", sum);
     }
 }
@@ -140,6 +165,7 @@ namespace ConstExprPow {
 
 void main_constexpr()
 {
+    ConstExprComplex::test_lambdas();
     ConstExprComplex::testComplex();
     ConstExprDynamicData::testDynamicData();
     ConstExprPow::testPower();

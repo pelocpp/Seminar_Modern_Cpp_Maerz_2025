@@ -46,7 +46,7 @@ int main()
         //main_concepts_requires_classes();
         //main_concepts_requires_functions();
         //main_const_variants();
-        //main_constexpr();
+        main_constexpr();
         //main_constexpr_crc();
         //main_constructor_invocations();
         //main_copy_move_elision();
@@ -115,7 +115,7 @@ int main()
         //main_variant();
         //main_virtual_base_class_destructor();
         //main_virtual_override_final();
-        main_weak_pointer();
+        //main_weak_pointer();
 
         //main_exercises();
     }

@@ -52,8 +52,11 @@ static constexpr auto calcCRC(uint8_t len, const uint8_t* data) {
 void main_constexpr_crc()
 {
     constexpr uint8_t message[]{ "Hello World" };
+
     constexpr uint8_t checksum{ calcCRC(11, message) };
+
     std::cout << "Checksum is: " << std::hex << static_cast<int>(checksum) << std::endl;
+
     for (size_t i{}; i != 256; ++i) {
         std::cout << static_cast<int>(crcTable<MY_POLYNOM>[i]) << std::endl;
     }
