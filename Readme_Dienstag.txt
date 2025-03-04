@@ -218,3 +218,63 @@ Zu h) Ein std::shared_ptr hat zu einem Zeitpunkt einen oder mehrere Besitzer.
 =========================================
 
 Details:
+
+=========================================
+
+std::move bei return;
+
+Antwort: NIEMALS !!!!!!!
+
+Lass den Compiler entscheiden. // seine Arbeit machen.
+
+=========================================
+
+Zäsur:
+
+Shared oder Unique: ???
+
+a) Go-for-Unique: 1 Besitzer, wenn es geht.
+
+  Kommt dem raw-Pointer am Nächsten.
+
+b) Sonst Shared: Mehrere Besitzer.
+
+Problem:  Geht nicht immer. !!!
+
+Lösung:  std::weak_ptr.
+
+Wann benötige ich den std::weak_ptr ????
+
+=========================================
+
+
+Frage: Observer-Pattern ????
+
+Skizze:
+
+a) Subject: Hier kann ein Ereignis eintreten.
+
+b) Observer: Hier wird das Ereignis verarbeitet.
+
+             Ein Observer interessiert sich für ein Ereignis.
+
+c) Observer melden sich am Subject an.
+
+d) Observer melden sich am Subject ab.
+
+e) Ein Subject kennt seine Observer.
+
+i) Das Subject: std::shared_ptr:   
+
+ii) Observer: std::shared_ptr
+
+iii) Im Subject gibt es eine Liste von Observern:
+
+     Legen wir hier shared_ptr ab oder weak_ptr ab ???
+
+     =======> weak_ptr !!!!!!!
+
+Fazit:  std::shared_ptr oder std::weak_ptr ???
+
+Antwort: So viel es geht weak_ptr !!!
+

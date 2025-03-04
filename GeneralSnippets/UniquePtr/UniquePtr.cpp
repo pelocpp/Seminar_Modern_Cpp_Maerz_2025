@@ -13,8 +13,14 @@ namespace UniquePointerGeneral {
 
     static std::unique_ptr<int> loadUniquePointer()
     {
-        std::unique_ptr<int> ptr{ std::make_unique<int>(100) };
-        return ptr;
+  //      std::unique_ptr<int> ptr{ std::make_unique<int>(100) };
+
+		//*ptr = 123;
+  //      
+  //      // return std::move(ptr);
+  //      return ptr;
+
+        return  std::make_unique<int>(100);
     }
 
     static void storeUniquePointer(std::unique_ptr<int>& ptr)
@@ -34,7 +40,7 @@ namespace UniquePointerGeneral {
         std::println("*ptr:    {}", *ptr);
 
         // ownership CANNOT be taken right now - ptr is const:
-        // std::unique_ptr<int> ptr2{ std::move(ptr) };
+       // std::unique_ptr<int> ptr2{ std::move(ptr) };
     }
 
     static void storeUniquePointerAlternate(int* ptr)
@@ -104,7 +110,7 @@ namespace UniquePointerGeneral {
         storeUniquePointer(ptr);
 
         // C++ Core Guidelines
-        storeUniquePointerAlternate(ptr.get());
+        // storeUniquePointerAlternate(ptr.get());
 
         // does this work?
         std::println("*ptr:    {}", *ptr);
