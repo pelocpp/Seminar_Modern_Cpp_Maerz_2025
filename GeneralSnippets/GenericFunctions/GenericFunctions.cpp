@@ -28,16 +28,24 @@ namespace GenericFunctions {
     // ---------------------------------------------------------------------------------
     // generic function - how the compiler sees them
 
+	// Primary Template
     template<typename T>
     static void Function(T x, int y)
     {
         std::cout << "x=" << x << ", y=" << y << std::endl;
     }
 
-    template<>
-    void Function<int>(int x, int y)
+	// Template Specialisierung für T = int
+    //template<>
+    //void Function<int> (int x, int y)
+    //{
+    //    std::cout << "int: x=" << x << ", y=" << y << std::endl;
+    //}
+
+	// free-function
+    void Function (int x, int y)
     {
-        std::cout << "x=" << x << ", y=" << y << std::endl;
+        std::cout << "int: x=" << x << ", y=" << y << std::endl;
     }
 
     template<>
@@ -55,6 +63,7 @@ namespace GenericFunctions {
     static void test_02()
     {
         Function<int>(1, 123);
+        Function(1, 123);
         Function<double>(123.456, 123);
         Function<std::string>(std::string{ "ABC" }, 123);
     }
@@ -203,10 +212,22 @@ namespace GenericLambdas {
 
 namespace GenericLambdasExample {
 
+    // define a generic lambda (top-level)
+    auto isGreaterThanFifty = [](const auto& n) -> bool {
+        return n > 50;
+    };
+
+	//template <typename T >
+ //   std::function< bool(const T& n) > isGreaterThanFifty = [](const auto& n) -> bool {
+ //       return n > 50;
+ //   };
+
     static void test_01()
     {
-        // define a generic lambda
-        auto isGreaterThanFifty = [](const auto& n) { return n > 50; };
+        //// define a generic lambda
+        //auto isGreaterThanFifty = [](const auto& n) {
+        //    return n > 50;
+        //};
 
         std::vector<int> intValues{ 44, 65, 22, 77, 2 };
 
@@ -214,7 +235,7 @@ namespace GenericLambdasExample {
         auto it1 = std::find_if(
             intValues.begin(),
             intValues.end(),
-            isGreaterThanFifty
+			isGreaterThanFifty  // Type Deduction
         );
         if (it1 != intValues.end()) {
             std::cout << "Found a value: " << *it1 << std::endl;
@@ -226,7 +247,7 @@ namespace GenericLambdasExample {
         auto it2 = std::find_if(
             doubleValues.begin(),
             doubleValues.end(),
-            isGreaterThanFifty
+			isGreaterThanFifty  // Type Deduction
         );
         if (it2 != doubleValues.end()) {
             std::cout << "Found a value: " << *it2 << std::endl;
@@ -278,6 +299,8 @@ namespace GenericFunctionsExample {
     static void test_01()
     {
         std::vector<int> intValues{ 44, 65, 22, 77, 2 };
+
+     //   auto isGreaterThanFifty(const auto & n) { return n > 50; };
 
         // use generic function with a vector of integers
         auto it1{ std::find_if(

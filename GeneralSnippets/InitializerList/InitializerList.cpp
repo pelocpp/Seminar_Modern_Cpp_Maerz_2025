@@ -4,10 +4,65 @@
 
 module modern_cpp:initializer_list;
 
+int zahlen[100] = {};       // Globales Feld.
+
+void tueWasElementarerParameter(int& n)
+{
+    int m = 0;
+
+    m = n;
+}
+
+void callTueWasElementarerParameter()
+{
+    int x = 123;
+
+    tueWasElementarerParameter(x);
+}
+
+
+void test_local()
+{
+	int zahlen[100] = {};   // Lokales Feld.
+	// int[] zahlen = new int[100]; // C#
+
+	// Dynamisches Array // Auf dem Heap
+	int* zahlen2 = new int[100]; // C++
+
+	std::vector<int> vec{};
+    vec.resize(100);
+}
+
+//static int adder2(int list[])  // Array Decay // "decay" verkümmern // Verlust
+
+static int adder2(int* list, int len)
+{
+    int test1 = sizeof(list);
+
+    return 123;
+}
+
+void test_adder2()
+{
+    int list[] = { 1, 2, 3, 4, 5, 6, 7 };
+
+    int len = sizeof(list) / sizeof (int);  // Ginge // Tedious // Zähhhh
+
+    int sum = adder2(list, len );
+}
+
 namespace InitializerList {
 
+    static int adder3(std::array<int, 5> list)
+    {
+    }
+
+    static int adder4(std::span<int> list)
+    {
+    }
+
     // function using std::initializer_list
-    static int adder (std::initializer_list<int> list)
+    static int adder ( std::initializer_list<int> list )
     {
         int result{};
 
@@ -34,7 +89,9 @@ namespace InitializerList {
     static void test_01() {
 
         // testing functions expecting lists in function call
-        int sum = adder({ 1, 2, 3, 4, 5 });
+
+        int sum = adder ( { 1, 2, 3, 4, 5, 6, 7, 8 } );
+
         std::cout << sum << std::endl;
 
         print({ 1, 2, 3, 4, 5 });
@@ -110,10 +167,10 @@ namespace InitializerList {
 
     static void test_04() {
 
-        TinyContainer tc0;                  // TinyContainer::TinyContainer()
-        TinyContainer tc1{ 1, 2, 3, 4 };    // TinyContainer::TinyContainer(std::initializer_list<int>)
-        TinyContainer tc2{ 1 };             // TinyContainer::TinyContainer(std::initializer_list<int>)
-        TinyContainer tc3(1);               // TinyContainer::TinyContainer(int)
+        TinyContainer tc0;                              // TinyContainer::TinyContainer()
+        TinyContainer tc1{ 1, 2, 3, 4 };                // TinyContainer::TinyContainer(std::initializer_list<int>)
+        TinyContainer tc2{ 1 };                // TinyContainer::TinyContainer(std::initializer_list<int>)
+        TinyContainer tc3(1);                // TinyContainer::TinyContainer(int)
         TinyContainer tc4{ };               // TinyContainer::TinyContainer()
     }
 

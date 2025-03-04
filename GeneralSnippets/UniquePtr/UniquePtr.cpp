@@ -50,6 +50,10 @@ namespace UniquePointerGeneral {
 
     static void test_01()
     {
+        /*std::unique_ptr<int> ptr111;
+        std::unique_ptr<int> ptr222;
+        ptr111 = ptr222;*/
+
         // create a unique_ptr to an int with value 123
         std::unique_ptr<int> ptr1{ new int{ 123 } };
         // or

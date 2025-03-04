@@ -9,10 +9,20 @@ import std;
 
 #pragma message("Collection of Modern C++-Code Examples - Copyright (C) 2019-2025 Peter Loos")
 
+
+extern int zahlen[100];
+
+extern void test_local();
+extern void test_adder2();
+extern void callTueWasElementarerParameter();
+
 int main()
 {
     //extern int _main_modules();
     //_main_modules();
+    //callTueWasElementarerParameter();
+    //test_adder2();
+    //test_local();
 
     std::println("[Collection of Modern C++-Code Examples - Copyright (C) 2019-2025 Peter Loos]");
 
@@ -97,7 +107,7 @@ int main()
         //main_two_phase_name_lookup();
         //main_type_erasure();
         //main_type_traits();
-        //main_unique_ptr();
+        main_unique_ptr();
         //main_variadic_templates_introduction();
         //main_variadic_templates_working_on_every_argument();
         //main_variadic_templates_sum_of_sums();
@@ -107,7 +117,7 @@ int main()
         //main_virtual_override_final();
         //main_weak_pointer();
 
-        main_exercises();
+        //main_exercises();
     }
     catch (const std::exception& ex) {
         std::println("Exception: {}", ex.what());

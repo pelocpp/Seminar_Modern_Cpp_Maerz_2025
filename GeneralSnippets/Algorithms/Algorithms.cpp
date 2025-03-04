@@ -10,15 +10,27 @@ module modern_cpp:algorithms;
 
 namespace Algorithms {
 
-    //static constexpr int Size = 100'000'000;  // release
-    static constexpr int Size = 10'000'000;     // debug
+    static constexpr int Size = 1000'000'000;  // release
+    //static constexpr int Size = 10'000'000;     // debug
 
     // =================================================================================
     // Initialization with a constant value
     // =================================================================================
 
+    static auto test_iterators()
+    {
+        std::vector<double> values1(Size);
+        std::deque<double> values2(Size);
+
+        std::vector<double>::iterator anfang = values1.begin();
+        std::deque<double>::iterator anfang2 = values2.begin();
+    }
+
+
     static auto test_constant_initialize_classic_for_loop()
     {
+        // int test[100000000] = {};
+
         std::println("Using a classic for-loop");
 
         ScopedTimer watch{};
@@ -180,7 +192,9 @@ namespace Algorithms {
         std::for_each(
             values.begin(),
             values.end(),
-            [i = 0.0] (auto& elem) mutable { elem = 2.0 * i++; }
+            [i = 0.0] (auto& elem) mutable {
+                elem = 2.0 * i++;
+            }
         );
     }
 
@@ -433,10 +447,10 @@ namespace Algorithms {
 void main_algorithms()
 {
     using namespace Algorithms;
-    test_const_initialization();
+    //test_const_initialization();
     test_initialization();
-    test_sum_calculation();
-    test_copying();
+    //test_sum_calculation();
+    //test_copying();
 }
 
 // =====================================================================================

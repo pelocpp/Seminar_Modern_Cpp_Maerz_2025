@@ -540,7 +540,8 @@
     <ClInclude Include="ScopedTimer\ScopedTimer.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Readme.txt" />
+    <Text Include="..\Readme_Dienstag.txt" />
+    <Text Include="..\Readme_Montag.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
