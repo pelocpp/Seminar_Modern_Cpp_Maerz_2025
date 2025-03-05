@@ -91,7 +91,7 @@ namespace Exercises_VariadicTemplates {
             std::cout << " # " << arg1 << ": " << typeid(arg1).name();
             std::cout << " - " << arg2 << ": " << typeid(arg2).name() << std::endl;
 
-            return std::is_same<decltype(arg1), decltype(arg2)>::value;
+            return std::is_same<T1, T2>::value;
             // or
             // return std::is_same_v<decltype(arg1), decltype(arg2)>;
             // or
@@ -99,14 +99,14 @@ namespace Exercises_VariadicTemplates {
         }
 
         template<typename T1, typename T2, typename... TRest>
-        bool sameType(T1 arg1, T2 arg2, TRest... args)
+        bool sameType(T1&& arg1, T2&& arg2, TRest... args)
         {
             std::cout << " > " << arg1 << ": " << typeid(arg1).name();
             std::cout << " - " << arg2 << ": " << typeid(arg2).name() << std::endl;
 
             // Note: short-circuit-evaluation is considered !
             // Study output of program execution
-            return std::is_same<decltype(arg1), decltype(arg2)>::value && sameType(arg2, args...);
+            return std::is_same<T1, T2>::value && sameType( std::forward<T2>( arg2)   , args...);
 
             // Note: Due to order of expression evaluation short-circuit-evaluation cannot be considered !
             // Study output of program execution
