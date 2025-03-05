@@ -36,6 +36,8 @@ namespace TupleSamples {
 
         // printing tuple values again
         {
+            const int n = 0;
+
             auto value1{ std::get<0>(values) };
             auto value2{ std::get<1>(values) };
             auto value3{ std::get<2>(values) };
@@ -67,6 +69,8 @@ namespace TupleSamples {
         Row row1 = std::make_tuple(10, 'A', 1.11, "Mueller");
         Row row2 = std::make_tuple(11, 'B', 2.22, "Sepp");
         Row row3 = std::make_tuple(12, 'C', 3.33, "Hans");
+
+        std::vector<std::tuple<int, char, double, std::string>> mySheet0;
 
         std::vector<Row> mySheet;
 
@@ -102,6 +106,8 @@ namespace TupleSamples {
         std::println("Value: {}", val);
         std::println("Name:  {}", name);
 
+        // Range Based for - loop with structured binding
+        // C++ 17
         for (const auto& [id, abbr, val, name] : mySheet)
         {
             std::println("Id:    {}", id);
@@ -123,7 +129,7 @@ namespace TupleSamples {
         mySheet.push_back(row2);
         mySheet.push_back(row3);
 
-        // C++ 14: std::tie
+        // C++ 14: std::tie  // structured binding für Arme
         int id{};
         char abbr{};
         double val{};
@@ -133,7 +139,7 @@ namespace TupleSamples {
 
         // or (note: std::ignore)
         // 
-        // std::tie(id, std::ignore, val, name) = mySheet[0];
+        std::tie(id, std::ignore, val, name) = mySheet[0];
 
         std::println("Id:    {}", id);
         std::println("Abbr:  {}", abbr);

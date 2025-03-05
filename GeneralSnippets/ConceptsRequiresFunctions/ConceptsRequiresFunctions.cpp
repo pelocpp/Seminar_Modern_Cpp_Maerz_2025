@@ -8,14 +8,17 @@ module modern_cpp:concepts_requires_functions;
 template <typename T>
 concept Numerical = std::integral<T> || std::floating_point<T>;
 
+
 // using <type_traits>
-template <typename T>
-concept NumericalEx = std::is_integral<T>::value || std::is_floating_point<T>::value;
+template <typename A>
+concept NumericalEx = std::is_integral<A>::value || std::is_floating_point<A>::value;
 
 namespace Requires_Clause {
 
+    // möchte eine Aussage treffen, welche T's ich akzeptiere
+
     template <typename T>
-        requires Numerical<T>
+        requires NumericalEx<T>
     auto add(T a, T b)
     {
         return a + b;
@@ -48,7 +51,7 @@ namespace Requires_Clause {
         //    the concept 'Numerical<std::string>' evaluated to false
         //    the concept 'std::floating_point<std::string>' evaluated to false
         //    the concept 'std::integral<std::string>' evaluated to false
-        // auto sum4 = add(std::string { "ABC" }, std::string { "DEF" });
+        //auto sum4 = add(std::string { "ABC" }, std::string { "DEF" });
     }
 
     // ---------------------------------------------------------------------------------
@@ -187,6 +190,9 @@ namespace Abbreviated_Function_Templates {
         auto sum2{ add(123.456, 654.321) };
         std::cout << sum2 << std::endl;
 
+       //auto sumX{ add(std::string{"123.456"}, std::string{"654.321"}) };
+        //std::cout << sum2 << std::endl;
+
         auto sum3{ add(123.456, 654.321F) };
         std::cout << sum3 << std::endl;
     }
@@ -206,7 +212,8 @@ namespace UserDefined_Concept {
         return arg + 1;
     }
 
-    auto incrementByTwo(GreatIntegral auto arg) {
+    // generic function
+    static auto incrementByTwo(GreatIntegral auto arg) {
         return arg + 2;
     }
 

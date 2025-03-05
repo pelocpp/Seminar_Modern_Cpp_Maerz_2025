@@ -4,6 +4,129 @@
 
 module modern_cpp:variadic_templates;
 
+namespace VariadicTemplatesIntro_Seminar {
+
+    //// C++ 11
+
+    //template <typename T>
+    //static void printer (T n) {
+
+    //    std::println("{}", n);
+    //}
+
+    //template <typename T, typename ... TArgs> // Typen einpacken (int, int, int, int)
+    //static void printer(T n, TArgs ... args) {   // Werte einpacken (2, 3, 4, 5)
+
+    //    std::println("{}", n);
+
+    //    printer< TArgs ... >(args ... );                 // auspacken: Komma-getrennte Liste erzeugen
+    //}
+
+    //// C++ 20
+
+    //static void printer(auto n) {
+
+    //    std::println("{}", n);
+    //}
+
+    //static void printer(auto n, auto ... args) { 
+
+    //    std::println("{}", n);
+
+    //    printer (args ...);          
+    //}
+
+    // C++ 20, mit einer Funktion
+
+    static void printer(auto n, auto ... args) {
+
+        std::println("{}", n);
+
+        if constexpr( sizeof... ( args ) != 0)
+        {
+            printer(args ...);
+        }
+    }
+
+    static void test_seminar_variadic_zum_ersten() {
+
+        printer (1, 2.5, "333", 444l, 555555ll);
+    }
+
+    // ====================================================
+    // Why
+
+    class Unknown {
+    private:
+        int m_var1;
+        int m_var2;
+        int m_var3;
+
+    public:
+        Unknown() : m_var1{ -1 }, m_var2{ -1 }, m_var3{ -1 } {
+            std::cout << "c'tor()" << std::endl;
+        }
+
+        Unknown(int n) : m_var1{ n }, m_var2{ -1 }, m_var3{ -1 } {
+            std::cout << "c'tor(int)" << std::endl;
+        }
+
+        Unknown(int n, int m) : m_var1{ n }, m_var2{ m }, m_var3{ -1 } {
+            std::cout << "c'tor(int, int)" << std::endl;
+        }
+
+        Unknown(int n, int m, int k) : m_var1{ n }, m_var2{ m }, m_var3{ k } {
+            std::cout << "c'tor(int, int, int)" << std::endl;
+        }
+
+        friend std::ostream& operator<< (std::ostream&, const Unknown&);
+    };
+
+    std::ostream& operator<< (std::ostream& os, const Unknown& obj) {
+        os
+            << "var1: " << obj.m_var1
+            << ", var2: " << obj.m_var2
+            << ", var3: " << obj.m_var3;
+
+        return os;
+    }
+
+    template <typename T, typename ... TArgs>
+    std::unique_ptr<T> my_make_unique(TArgs ... args) {
+
+        std::unique_ptr<T> ptr{ new T{ args ...} };
+        return ptr;
+    }
+
+    static void test_seminar_variadic_unique() {
+
+        std::unique_ptr<Unknown> ptr1 = std::make_unique<Unknown, int, int, int>( 1, 2, 3 );
+
+        std::unique_ptr<Unknown> ptr2 = my_make_unique<Unknown, int, int, int>( 1, 2, 3 );
+    }
+
+    // ====================================
+
+    // Geht der Zugriff auf die einzelnen Elemente eines Packs ??????????
+    // a) per Se // per Konzept: Nein.
+    // b) Aber doch .... in manchen Fällen : Wenn alle Daten VOM SELBEN Typ sind.
+
+    void viele_werte (auto ... args) {
+
+        // auto list = { args ... };
+
+        for (auto elem : { args ... } ) {
+
+            std::println("{}", elem);
+        }
+    }
+
+    static void test_seminar_variadic() {
+
+        viele_werte(1, 2, 3, 4, 5, 6);
+    }
+}
+
 namespace VariadicTemplatesIntro_01 {
 
     // ====================================================================
@@ -352,6 +475,9 @@ namespace VariadicTemplatesIntro_06 {
 
 void main_variadic_templates_introduction()
 {
+    VariadicTemplatesIntro_Seminar::test_seminar_variadic();
+    return;
+
     VariadicTemplatesIntro_01::test_printer_01();
 
     VariadicTemplatesIntro_02::test_my_make_unique();

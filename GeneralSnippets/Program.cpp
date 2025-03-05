@@ -46,7 +46,7 @@ int main()
         //main_concepts_requires_classes();
         //main_concepts_requires_functions();
         //main_const_variants();
-        main_constexpr();
+        //main_constexpr();
         //main_constexpr_crc();
         //main_constructor_invocations();
         //main_copy_move_elision();
@@ -76,7 +76,7 @@ int main()
         //main_metaprogramming_02(); 
         //main_modularized_standard_library(); 
         //main_modules();
-        //main_move_semantics();
+        main_move_semantics();
         //main_optional();
         //main_perfect_forwarding();
         //main_placement_new();
@@ -108,7 +108,7 @@ int main()
         //main_type_erasure();
         //main_type_traits();
         //main_unique_ptr();
-        //main_variadic_templates_introduction();
+       // main_variadic_templates_introduction();
         //main_variadic_templates_working_on_every_argument();
         //main_variadic_templates_sum_of_sums();
         //main_variadic_templates_mixins();

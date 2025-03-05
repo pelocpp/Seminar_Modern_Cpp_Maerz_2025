@@ -35,11 +35,13 @@ namespace StructuredBinding {
 
     static void test_03()
     {
-        int arr[] { 123, 456, 789 };
+        int arr[3] { 123, 456, 789 };
 
-        auto [a, b, c] { arr };
+        const auto& [a, b, c] = arr;
 
-        std::println("{}, {}, {}", a, b, c);
+      //  a = 999;
+
+        std::println("{}, {}, {}", arr[0], b, c);
     }
 
     static void test_04()
@@ -89,7 +91,7 @@ namespace StructuredBinding {
 
         // with structured binding
         Point p2 { 10, 20 };
-        auto [x, y] { p2 };
+        auto [x, y] = p2;
 
         std::println("X Coordinate : {}", x);
         std::println("Y Coordinate : {}", y);
@@ -141,7 +143,7 @@ namespace StructuredBinding {
     }
 }
 
-void main_structured_binding()
+void main_structured_binding() 
 {
     using namespace StructuredBinding;
     test_01();

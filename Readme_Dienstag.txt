@@ -292,3 +292,33 @@ https://github.com/pelocpp/cpp_design_patterns/tree/master/Patterns/Observer/Res
 
 float: IEEE 754
 
+===
+
+class X {};
+
+
+X x;
+
+X y = x;   // copy-c'tor  // KEINE WERTZUWEISUNG
+// IDENTISCH ZU
+X y (x);   // copy-c'tor
+// IDENTISCH ZU
+X y {x};   // copy-c'tor // Brace-Init.
+
+C#:
+
+class X
+{
+    void print();
+}
+
+X x();  // Valid C++ // Was ist x ???
+        // x ist eine FUNKTION, die keine PArameter hat und ein Objekt X zurückliefert
+
+Most vexing Parse
+
+X x{};  // x ist ein Objekt, durch den Def. C'tor vorbelegt.
+
+// besser:  X x = new X();   // C#
+
+x.print();   // x ist kein Objekt

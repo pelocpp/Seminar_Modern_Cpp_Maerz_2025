@@ -25,7 +25,7 @@ namespace MoveSemantics {
 
         // move semantics
         BigData(BigData&&) noexcept;              // move c'tor
-        BigData& operator= (BigData&&) noexcept;  // move assignment
+        BigData& operator= (BigData&&);  // move assignment
 
     private:
         // private helper methods
@@ -46,6 +46,9 @@ namespace MoveSemantics {
     }
 
     BigData::BigData(size_t size, int preset) {
+
+        std::println("user-def c'tor (size, preset)");
+
         // create buffer
         m_size = size;
         m_data = new int[m_size];
@@ -110,7 +113,7 @@ namespace MoveSemantics {
 
     // -------------------------------------------------------------------
 
-    BigData& BigData::operator= (BigData&& data) noexcept { // move-assignment
+    BigData& BigData::operator= (BigData&& data)  { // move-assignment
 
         if (this != &data) {
             delete[] m_data;        // release left side
@@ -175,9 +178,11 @@ namespace MoveSemantics {
 
         std::vector<BigData> vec;
 
-      //  BigData tmp(10, 1);
-
         vec.push_back(BigData(10, 1));
+
+        vec.push_back(BigData(20, 2));
+    
+        // vec.emplace_back(20, 2);
     }
 
     static void test_03_demonstrate_move_assignment() {
@@ -208,11 +213,11 @@ namespace MoveSemantics {
 void main_move_semantics()
 {
     using namespace MoveSemantics;
-    test_01_move_semantics();
+    //test_01_move_semantics();
     test_02_demonstrate_move_ctor();
-    test_03_demonstrate_move_assignment();
-    test_04_demonstrate_move_assignment();
-    test_05_demonstrate_missing_noexept();
+    //test_03_demonstrate_move_assignment();
+    //test_04_demonstrate_move_assignment();
+    //test_05_demonstrate_missing_noexept();
 }
 
 // =====================================================================================
