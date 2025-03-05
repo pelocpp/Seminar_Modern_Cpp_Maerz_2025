@@ -251,3 +251,12 @@ Was ist stack Unwinding:
 
 Eine Ausnahme wird NICHT gefangen (try ... catch)
  ==> Es wird die Ausnahme an die rufende Methode durchgeschleust.
+
+======================
+
+Kennen lernen:
+
+======================
+
+Um mit Variadischen Templates erste Berührung zu haben:
+

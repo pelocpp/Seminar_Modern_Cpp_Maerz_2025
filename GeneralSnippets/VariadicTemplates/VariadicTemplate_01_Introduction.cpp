@@ -91,18 +91,28 @@ namespace VariadicTemplatesIntro_Seminar {
         return os;
     }
 
+    // passt, aber es werden Kopien übergeben
     template <typename T, typename ... TArgs>
-    std::unique_ptr<T> my_make_unique(TArgs ... args) {
+    std::unique_ptr<T> my_make_unique_01(TArgs ... args) {
 
         std::unique_ptr<T> ptr{ new T{ args ...} };
         return ptr;
     }
 
-    static void test_seminar_variadic_unique() {
+    // perfekt, es werden Referenzen übergeben: Universelle Referenz // Perfekt Forwarding
+    template <typename T, typename ... TArgs>
+    
+    std::unique_ptr<T> my_make_unique(TArgs&& ... args) {
 
-        std::unique_ptr<Unknown> ptr1 = std::make_unique<Unknown, int, int, int>( 1, 2, 3 );
+        std::unique_ptr<T> ptr{ new T{   std::forward<Targs> ( args ) ...  } };
+        return ptr;
+    }
 
-        std::unique_ptr<Unknown> ptr2 = my_make_unique<Unknown, int, int, int>( 1, 2, 3 );
+    static void test_seminar_variadic() {
+
+        std::unique_ptr<Unknown> ptr2 = 
+            
+            my_make_unique<Unknown, int, int, int>( 1, 2, 3 );
     }
 
     // ====================================
@@ -121,7 +131,7 @@ namespace VariadicTemplatesIntro_Seminar {
         }
     }
 
-    static void test_seminar_variadic() {
+    static void test_seminar_variadic_viele_werte() {
 
         viele_werte(1, 2, 3, 4, 5, 6);
     }
