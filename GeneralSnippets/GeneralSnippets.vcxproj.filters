@@ -1181,5 +1181,6 @@
     <Text Include="..\Readme_Montag.txt" />
     <Text Include="..\Readme_Dienstag.txt" />
     <Text Include="..\Readme_Mittwoch.txt" />
+    <Text Include="..\Readme_Donnerstag.txt" />
   </ItemGroup>
 </Project>

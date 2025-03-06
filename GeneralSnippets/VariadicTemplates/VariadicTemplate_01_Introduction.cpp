@@ -104,7 +104,7 @@ namespace VariadicTemplatesIntro_Seminar {
     
     std::unique_ptr<T> my_make_unique(TArgs&& ... args) {
 
-        std::unique_ptr<T> ptr{ new T{   std::forward<Targs> ( args ) ...  } };
+        std::unique_ptr<T> ptr{ new T{   std::forward<TArgs> ( args ) ...  } };
         return ptr;
     }
 

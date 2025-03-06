@@ -2,13 +2,32 @@
 // StringView.cpp // Klasse std::string_view
 // =====================================================================================
 
+// Roselyn  
+
+#define XXX "11111111111111111111111111111111111111111111111111111"
+
+#define YYY "11111111111111111111111111111111111111111111111111111"
+
+module;
+
+#include <print>
+
 module modern_cpp:string_view;
 
 namespace StringViewDemonstration {
 
+    void ddd()
+    {
+        const char* langeZeichenkette = XXX;
+
+        std::string s{ XXX };
+    }
+
     static void test_01()
     {
-        std::string_view sv{ "AAAAAAAAAAAAAAAAAAAAAAAAAAAA" };  // Konstante Zeichenkette
+        constexpr auto s0 { "AAAAAAAAAAAAAAAAAAAAAAAAAAAA" };  // Konstante Zeichenkette
+
+        constexpr std::string_view sv{ "AAAAAAAAAAAAAAAAAAAAAAAAAAAA" };  // Konstante Zeichenkette
 
         std::string s{ "AAAAAAAAAAAAAAAAAAAAAAAAAAAA" };        //  Heap
 
@@ -77,10 +96,10 @@ namespace StringViewDemonstration {
 void main_string_view()
 {
     using namespace StringViewDemonstration;
-    test_01();
+    //test_01();
     test_02();
-    test_03();
-    test_04();
+    //test_03();
+    //test_04();
 }
 
 // =====================================================================================

@@ -9,7 +9,7 @@ namespace VirtualBaseClassDestructor {
     class Base
     {
     public:
-        ~Base()  // <== add keyword 'virtual' in front of this line !!!
+        /*virtual*/ ~Base()  // <== add keyword 'virtual' in front of this line !!!
         {
             // do some important cleanup in class Base
             std::cout << "d'tor Base" << std::endl;

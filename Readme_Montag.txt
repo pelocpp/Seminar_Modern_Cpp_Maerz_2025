@@ -1,6 +1,16 @@
+=================================================
+
 Modern C++
 
 Peter Loos
+
+peter.loos@gmx.de
+
+https://github.com/pelocpp
+
+https://peterloos.de/
+
+=================================================
 
 Dev. // Schulung
 

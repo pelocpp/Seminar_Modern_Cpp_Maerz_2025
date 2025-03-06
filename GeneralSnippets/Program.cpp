@@ -93,7 +93,7 @@ int main()
         //main_source_location();
         //main_sso();
         //main_static_assert();
-        //main_string_view();
+        // main_string_view();
         //main_structured_binding();
         //main_templates_class_basics_01();
         //main_templates_class_basics_02();
@@ -105,7 +105,7 @@ int main()
         //main_transform();
         //main_tuple(); 
         //main_two_phase_name_lookup();
-        //main_type_erasure();
+       // main_type_erasure();
         //main_type_traits();
         //main_unique_ptr();
         //main_variadic_templates_introduction();
@@ -113,11 +113,11 @@ int main()
         //main_variadic_templates_sum_of_sums();
         //main_variadic_templates_mixins();
         //main_variant();
-        //main_virtual_base_class_destructor();
+        main_virtual_base_class_destructor();
         //main_virtual_override_final();
         //main_weak_pointer();
 
-        main_exercises();
+      //  main_exercises();
     }
     catch (const std::exception& ex) {
         std::println("Exception: {}", ex.what());
