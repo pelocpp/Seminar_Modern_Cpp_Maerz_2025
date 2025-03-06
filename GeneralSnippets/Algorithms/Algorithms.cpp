@@ -99,6 +99,7 @@ namespace Algorithms {
             values.end(),
             [](auto& elem) { elem = 123.0; }
         );
+    
     }
 
     static auto test_constant_initialize_range_based_for_loop()

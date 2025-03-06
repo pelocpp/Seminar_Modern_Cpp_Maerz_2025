@@ -177,3 +177,40 @@ Syntax: Grausam.
 "printf is back"
 
 Ist mehr println von C#
+
+
+
+
+================================
+
+CreateThread
+
+Ist historisch gewachsen ... und hat deswegen Nachteile:
+
+Einen Thread nur EINMAL ablaufen lassen.
+
+Performanz.
+
+======> Thread Pool 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

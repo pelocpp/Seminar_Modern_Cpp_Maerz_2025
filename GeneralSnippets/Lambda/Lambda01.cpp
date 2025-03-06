@@ -279,7 +279,7 @@ namespace Lambdas {
             std::cout << "Reference: " << n << " " << m << std::endl;
         };
 
-        return lambda;                                     // I would't do this never ever :-)
+        return lambda;                               // I would't do this never ever :-)
     }
 
     static void test_09() {
