@@ -8,6 +8,68 @@ module;
 
 module modern_cpp:folding;
 
+namespace Folding_Seminar {
+
+    auto addierer(auto ... args) {
+
+        // 1 + 2 + 3 + 4 ..
+
+        //auto sum = ( ...   +  args );   // folding expression
+        //return sum;
+
+        return (... + args);
+    }
+
+    auto addiererClassic(auto ... args) {
+
+        auto sum{ 0 };
+
+        for (auto elem : { args ... })
+        {
+            sum += elem;
+        }
+        return sum;
+    }
+
+    auto subtrahierer (auto ... args) {
+
+        // (1 - 2) - 3 = -4
+        // 1 - (2 - 3) = +2
+
+        return (args  - ...);
+    }
+
+    void comma_operator()
+    {
+        int n;
+        int m;
+        int z;
+
+        n = 1;
+        m = 2;
+
+        z = (n = 1, m = 2);  // Komma-Operator // Sequenz-Operator
+    }
+
+    void printer(auto first, auto ... args) {
+
+        // (std::cout << args1) << args2 << arg3 << ...........
+
+        // (std::cout << ... << args);
+
+        std::cout << first;
+
+        (...  ,  ( std::cout << " - " << args));
+
+        std::cout << std::endl;
+    }
+
+    void test_seminar_folding() {
+
+        printer(1, "ABC", 123.46, 555ll, '!');
+    }
+}
+
 namespace Folding {
 
     /* folding examples: introduction
@@ -173,15 +235,20 @@ namespace Folding {
 
 void main_folding()
 {
+    using namespace Folding_Seminar;
+    comma_operator();
+    test_seminar_folding();
+    return;
+
     using namespace Folding;
-    test_01();
-    test_02();
-    test_03a();
-    test_03b();
-    test_03c();
-    test_03d();
-    test_04();
-    test_05();
+    //test_01();
+    //test_02();
+    //test_03a();
+    //test_03b();
+    //test_03c();
+    //test_03d();
+    //test_04();
+    //test_05();
     test_06_benchmark_folding();
     test_06_benchmark_iterating();
 }

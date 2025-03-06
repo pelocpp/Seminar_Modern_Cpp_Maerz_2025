@@ -144,10 +144,36 @@ INTERESSANT: KEIN HIERARCHIE.  // Starre Kopplung
 
 Lose Kopplung
 
+========================================================================
+
+Ein weiterer Ansatz: Polymorphismus, aber zur Übersetzungszeit
+
+===> CRTP    C = Curious
+
+===> Performanz
+
+"Ein kurioses Pattern":  Gebrauchsanweisung.
+
+
+=========================================================================
+
+Folding  // Falten 
+
+Wozu gibt es Folding:
+
+Um die wiederholte Anwendung eines Operators EFFIZIENT auf MC abbilden zu können:
+
+int n = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8;
+
+Matrizen: 
+
+Syntax: Grausam.
 
 
 
 
+================================================
 
+"printf is back"
 
-
+Ist mehr println von C#

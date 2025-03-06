@@ -13,6 +13,7 @@ namespace CRTP {
         virtual ~ControlBase() {}
     };
 
+
     template <class T>
     class Control : public ControlBase  // inheritance needed for 'container' example
     {

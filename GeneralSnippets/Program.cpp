@@ -58,7 +58,7 @@ int main()
         //main_expression_templates();
         //main_exception_safety();
         //main_explicit_keyword();
-        //main_folding();
+      //  main_folding();
         //main_functional_programming_ranges();
         //main_functional_programming();
         //main_functional_programming_alternate();
@@ -80,7 +80,7 @@ int main()
         //main_optional();
        // main_perfect_forwarding();
         //main_placement_new();
-        //main_println();
+        main_println();
         //main_raii();
         //main_raii_02();
         //main_random();
@@ -113,11 +113,11 @@ int main()
         //main_variadic_templates_sum_of_sums();
         //main_variadic_templates_mixins();
         //main_variant();
-        main_virtual_base_class_destructor();
+        //main_virtual_base_class_destructor();
         //main_virtual_override_final();
         //main_weak_pointer();
 
-      //  main_exercises();
+        //main_exercises();
     }
     catch (const std::exception& ex) {
         std::println("Exception: {}", ex.what());

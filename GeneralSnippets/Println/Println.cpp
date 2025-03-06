@@ -11,7 +11,7 @@ module modern_cpp:println;
 // #define StdFormatter_04_Inheriting_From_Standard_Formatters
 // #define StdFormatter_05_Using_Standard_Formatters_for_Strings
 // #define StdFormatter_06_Using_Standard_Formatters_for_StdVector
-// #define StdFormatter_07_Custom_Parsing_01
+#define StdFormatter_07_Custom_Parsing_01
 // #define StdFormatter_07_Custom_Parsing_02
 // #define StdFormatter_07_Custom_Parsing_03
 

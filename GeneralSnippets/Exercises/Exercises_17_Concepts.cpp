@@ -368,7 +368,7 @@ namespace Exercises_Concepts {
             // without concepts
 
             template <typename T>
-            int count(T& t)
+            int countClassic(T& t)
             {
                 int count{};
 
@@ -393,7 +393,7 @@ namespace Exercises_Concepts {
             };
 
             template <typename T>
-                requires IsIterable<T>
+               // requires IsIterable<T>
             int count(T& t) {
                 int count{};
                 t.reset();
